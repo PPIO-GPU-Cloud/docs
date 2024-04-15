@@ -1,0 +1,57 @@
+---
+title: SSH
+description: Learn how to use SSH to connect to your instance.
+---
+
+## Quick Start
+### Logging in via SSH Key (Recommended)
+#### Linux/MacOS 
+1. On Ubuntu or Mac, use the following command to generate an RSA SSH public/private key pair:
+<CodeGroup>
+
+```Copy code
+ssh-keygen -t rsa
+``` 
+<CodeGroup>
+2. Force the agent to load the new private key and verify it's loaded:
+<CodeGroup>
+
+```csharp
+ssh-add; ssh-add -l
+``` 
+<CodeGroup>
+3. Retrieve the content of the public key:
+<CodeGroup>
+
+```bash
+cat ~/.ssh/id_rsa.pub
+``` 
+<CodeGroup>
+4. Copy the output to the "SSH Public Key" textbox under [Personal Center]() . Ensure it includes "ssh-rsa" and "user@something".
+
+Example of an SSH Key:
+<CodeGroup>
+
+```bash
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDopiaR1Q6Na6dW1QTK7hMuHVi+gXqutY5pUvrWCgeyjcBtBLHejxDQjdNt+qWQRORK/fZzrmyA8/ghani0rZlGPN3bYw1RXFHitt+bD1jVgtJzOmjMQdpMVALnZASQMoQQcCqVJ8PG5Xc08TciACS7S/Ltz3VdZfIq1tih969GCzCe3sctSFBuTwqUDnyrQ6iqSBhPSfQS7nCC/CwzMi3rDg0JzW2NHzIBsbvy0gdXy1ZtC4kkCr7/lUWAgZLk52v3s2CTXCg6QXnhWx+Q/dHOJVAEEucY4o8bo4rF4Bj+ifgEHFtUEfoK9+yj3OLbWfpIxyzhHK+nNXz3UaOMSC8D ultra@ppio
+```
+<CodeGroup>
+#### Windows
+
+Windows requires additional command-line tools like Cmder to generate SSH keys, with operations consistent with Linux.
+
+Since most machine learning and AI programming is performed on Linux, we strongly recommend installing a Linux subsystem on your Windows machine, such as WSL.
+## Common Issues
+
+If you encounter a "Permission denied(publickey)" error, it might be due to:
+- Attempting to run SSH/SCP from within an instance
+- Incorrect key setup or using the wrong/unmatched key
+- The SSH key format used is incorrect/unsupported 
+- The private key wasn't correctly loaded with `ssh-add`, may need to use the `-i` parameter
+- New or updated keys not taking effect for already created resources
+- Incorrect SSH key permission settings
+
+Use the `ssh -vv` command for detailed information.
+### Logging in via Password
+
+Copy the SSH login command from the [My Instances]()  page to a terminal or SSH tool and log in using the password provided on the page.

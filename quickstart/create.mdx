@@ -1,0 +1,48 @@
+---
+title: Create Instances
+description: This is the quickstart guide for creating an instance on Infrai.
+---
+
+## Quick Setup for GPU Container Cloud
+
+### Step 1: Register an Infrai Account
+
+If you have already registered with Infrai, you can skip this step.
+
+
+
+### Step 2: Purchase GPU Container Cloud
+
+#### Create from Image (Recommended)
+
+Your business application development is now easier and more efficient. Infrai offers you a range of meticulously packaged container images, making your instances ready to use out of the box.
+
+There's no need to fuss over installing GPU drivers or configuring various development environments. With just a few steps, you can launch an instance that's fully prepared, allowing you to focus on business logic development.
+
+##### Creation Process
+1. On the homepage, select the corresponding image
+![](https://gpu-cloud-1312767721.cos.ap-shanghai.myqcloud.com/docs/WX20240228-153550@2x.png)
+
+2. On the creation page, select your required resource configuration and click **Deploy with One Click**
+![](https://gpu-cloud-1312767721.cos.ap-shanghai.myqcloud.com/docs/20240227-160537@2x.png)
+
+3. Choose your billing method
+
+![](https://gpu-cloud-1312767721.cos.ap-shanghai.myqcloud.com/docs/WX20240227-165644@2x.png)
+
+
+
+## Configuration Explanation
+
+| Configuration          | Description                                                                                                                                                                                                                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cloud Storage          | Allows you to choose the type of cloud storage disk to attach to your instance. Options typically include SSDs, which offer faster access speeds, and HDDs, which have larger capacities but slower speeds. You can manage your cloud storage on the "Storage Management" page. |
+| CPU                    | The number of CPUs you choose for your instance. The CPU count will affect the instance's processing capability and performance, with more CPUs being beneficial for compute-intensive applications.                                                                            |
+| Memory                 | The size of RAM in GB specified for each instance. Memory is crucial for the running of applications and the overall speed of the instance.                                                                                                                                     |
+| Supported CUDA Version | CUDA is a parallel computing platform and API model developed by NVIDIA. Choosing the CUDA version is important if you plan to run applications optimized for NVIDIA GPUs, such as machine learning and 3D rendering applications.                                              |
+| Ports                  | You can expose your ports according to your service needs. The platform will provide port mapping services for your service. Multiple ports can be entered, separated by commas.                                                                                                |
+| Environment Variables  | Used to specify the parameters for the operating system's runtime environment. You can set environment variables here directly, and the platform will automatically initialize them for you.                                                                                    |
+| Billing Method         | You can choose a pay-as-you-go or flexible billing method, supporting monthly, weekly, or daily billing.                                                                                                                                                                        |
+| Base Image             | The image provided by the platform.                                                                                                                                                                                                                                             |
+| Private Image          | The image you uploaded to the platform's image library. You can view them in "My Images".                                                                                                                                                                                       |
+| Custom Image           | The image name you specify. The platform will default to pulling from DockerHub. Make sure the image name is entered correctly.                                                                                                                                                 |
