@@ -13,20 +13,19 @@ You can upload your images to the infrai Image Repository, thereby achieving uni
 2. In the docker environment where your image is located, perform the following operations:
 
    1. Log in to the infrai Image Service Docker Registry
-   <CodeGroup>
 
-   ```
+   ```bash
    docker login image.infrai.com --username=xgmdasdbroksktnnznsisri --password=G7Zn84EQ6ojqWm6CBeaiBYUzpCt0vaVaxaQgChl9wbSC6QsadsmqfeDNadqZZsKJtxVgwkdAWsQZOhDySVMbO5rRxvMbeAmy1NWgzQSGBvuO35S539gJv4iMI3bbD5m2yKQes59
    ```
-   <CodeGroup>
+
 
    2. Push the image to the Registry
-   <CodeGroup>
 
-   ```
+
+   ```bash
    docker tag [imageId] image.infrai.com/dev-xgmdbroksktnnznsisri/[image]:[tag]
    ```
-   ```
+   
+   ```bash
    docker push image.infrai.com/dev-xgmdbroksktnnznsisri/[image]:[tag]
    ```
-   <CodeGroup>
