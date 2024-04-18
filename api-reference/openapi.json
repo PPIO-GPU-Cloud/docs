@@ -7,6 +7,834 @@
   },
   "tags": [],
   "paths": {
+    "/v1/gpu/instance": {
+      "get": {
+        "summary": "Get Instance",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "instanceId",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "12948885700ef8e3",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "clusterId": {
+                      "type": "string"
+                    },
+                    "clusterName": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "sshCommand": {
+                      "type": "string"
+                    },
+                    "sshPassword": {
+                      "type": "string"
+                    },
+                    "imageUrl": {
+                      "type": "string"
+                    },
+                    "imageAuthId": {
+                      "type": "string"
+                    },
+                    "command": {
+                      "type": "string"
+                    },
+                    "cpuNum": {
+                      "type": "string"
+                    },
+                    "memory": {
+                      "type": "string"
+                    },
+                    "gpuNum": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    },
+                    "lastStartedAt": {
+                      "type": "string"
+                    },
+                    "lastStoppedAt": {
+                      "type": "string"
+                    },
+                    "useTime": {
+                      "type": "string"
+                    },
+                    "portMappings": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "port": {
+                            "type": "integer"
+                          },
+                          "endpoint": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "port",
+                          "endpoint",
+                          "type"
+                        ]
+                      }
+                    },
+                    "billingMode": {
+                      "type": "string"
+                    },
+                    "productId": {
+                      "type": "string"
+                    },
+                    "productName": {
+                      "type": "string"
+                    },
+                    "rootfsSize": {
+                      "type": "integer"
+                    },
+                    "volumeMounts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "size": {
+                            "type": "integer"
+                          },
+                          "Id": {
+                            "type": "string"
+                          },
+                          "mountPath": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "tools": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "statusError": {
+                      "type": "object",
+                      "properties": {
+                        "state": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "state",
+                        "message"
+                      ]
+                    },
+                    "envs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "diskSize": {
+                      "type": "integer"
+                    },
+                    "instancePrice": {
+                      "type": "string"
+                    },
+                    "localStoragePrice": {
+                      "type": "string"
+                    },
+                    "exitedLocalStoragePrice": {
+                      "type": "string"
+                    },
+                    "connectComponentSSH": {
+                      "type": "null"
+                    },
+                    "connectComponentWebTerminal": {
+                      "type": "object",
+                      "properties": {
+                        "port": {
+                          "type": "integer"
+                        },
+                        "address": {
+                          "type": "string"
+                        },
+                        "isRunning": {
+                          "type": "boolean"
+                        },
+                        "isShow": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "port",
+                        "address",
+                        "isRunning",
+                        "isShow"
+                      ]
+                    },
+                    "connectComponentJupyter": {
+                      "type": "null"
+                    },
+                    "connectComponentLog": {
+                      "type": "object",
+                      "properties": {
+                        "port": {
+                          "type": "integer"
+                        },
+                        "address": {
+                          "type": "string"
+                        },
+                        "isRunning": {
+                          "type": "boolean"
+                        },
+                        "isShow": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "port",
+                        "address",
+                        "isRunning",
+                        "isShow"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "clusterId",
+                    "clusterName",
+                    "status",
+                    "sshCommand",
+                    "sshPassword",
+                    "imageUrl",
+                    "imageAuthId",
+                    "command",
+                    "cpuNum",
+                    "memory",
+                    "gpuNum",
+                    "createdAt",
+                    "lastStartedAt",
+                    "lastStoppedAt",
+                    "useTime",
+                    "portMappings",
+                    "billingMode",
+                    "productId",
+                    "productName",
+                    "rootfsSize",
+                    "volumeMounts",
+                    "tools",
+                    "statusError",
+                    "envs",
+                    "diskSize",
+                    "instancePrice",
+                    "localStoragePrice",
+                    "exitedLocalStoragePrice",
+                    "connectComponentSSH",
+                    "connectComponentWebTerminal",
+                    "connectComponentJupyter",
+                    "connectComponentLog"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "id": "12948885700ef8e3",
+                      "name": "",
+                      "clusterId": "China",
+                      "clusterName": "",
+                      "status": "running",
+                      "sshCommand": "",
+                      "sshPassword": "",
+                      "imageUrl": "nginx:latest",
+                      "imageAuthId": "",
+                      "command": "",
+                      "cpuNum": "8",
+                      "memory": "63",
+                      "gpuNum": "1",
+                      "createdAt": "1713230117",
+                      "lastStartedAt": "1713258924",
+                      "lastStoppedAt": "0",
+                      "useTime": "30286",
+                      "portMappings": [
+                        {
+                          "port": 6000,
+                          "endpoint": "http://12948885700ef8e3-6000-proxy.infrai.com:54080",
+                          "type": "http"
+                        },
+                        {
+                          "port": 60001,
+                          "endpoint": "http://12948885700ef8e3-60001-proxy.infrai.com:54080",
+                          "type": "http"
+                        },
+                        {
+                          "port": 8080,
+                          "endpoint": "54.193.255.99:42741",
+                          "type": "tcp"
+                        },
+                        {
+                          "port": 8090,
+                          "endpoint": "54.193.255.99:34121",
+                          "type": "tcp"
+                        }
+                      ],
+                      "billingMode": "instance_afterusage",
+                      "productId": "26",
+                      "productName": "RTX 4090 24GB",
+                      "rootfsSize": 10,
+                      "volumeMounts": [
+                        {
+                          "type": "local",
+                          "size": 20,
+                          "Id": "054358de-a6a4-40fa-8b9d-f7eb461b7da8",
+                          "mountPath": "/workspace"
+                        }
+                      ],
+                      "tools": [],
+                      "statusError": {
+                        "state": "",
+                        "message": ""
+                      },
+                      "envs": [
+                        {
+                          "key": "testkey",
+                          "value": "123"
+                        }
+                      ],
+                      "diskSize": 0,
+                      "instancePrice": "269100",
+                      "localStoragePrice": "100",
+                      "exitedLocalStoragePrice": "100",
+                      "connectComponentSSH": null,
+                      "connectComponentWebTerminal": {
+                        "port": 0,
+                        "address": "54.193.255.99:41219",
+                        "isRunning": false,
+                        "isShow": true
+                      },
+                      "connectComponentJupyter": null,
+                      "connectComponentLog": {
+                        "port": 0,
+                        "address": "http://12948885700ef8e3-2224-proxy.infrai.com:54080/pod",
+                        "isRunning": false,
+                        "isShow": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/gpu/instances": {
+      "get": {
+        "summary": "List Instances",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "filter instance name ",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productName",
+            "in": "query",
+            "description": "filter product name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "instance status",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isUseSavingPlan",
+            "in": "query",
+            "description": "1: use saving plan, 2: not use saving plan",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "instances": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "clusterId": {
+                            "type": "string"
+                          },
+                          "clusterName": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "imageUrl": {
+                            "type": "string"
+                          },
+                          "cpuNum": {
+                            "type": "string"
+                          },
+                          "memory": {
+                            "type": "string"
+                          },
+                          "gpuNum": {
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "type": "string"
+                          },
+                          "lastStartedAt": {
+                            "type": "string"
+                          },
+                          "lastStoppedAt": {
+                            "type": "string"
+                          },
+                          "useTime": {
+                            "type": "string"
+                          },
+                          "billingMode": {
+                            "type": "string"
+                          },
+                          "productId": {
+                            "type": "string"
+                          },
+                          "productName": {
+                            "type": "string"
+                          },
+                          "rootfsSize": {
+                            "type": "integer"
+                          },
+                          "statusError": {
+                            "type": "object",
+                            "properties": {
+                              "state": {
+                                "type": "string"
+                              },
+                              "message": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "state",
+                              "message"
+                            ]
+                          },
+                          "envs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "key",
+                                "value"
+                              ]
+                            }
+                          },
+                          "diskSize": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "clusterId",
+                          "clusterName",
+                          "status",
+                          "imageUrl",
+                          "cpuNum",
+                          "memory",
+                          "gpuNum",
+                          "createdAt",
+                          "lastStartedAt",
+                          "lastStoppedAt",
+                          "useTime",
+                          "billingMode",
+                          "productId",
+                          "productName",
+                          "rootfsSize",
+                          "statusError",
+                          "envs",
+                          "diskSize"
+                        ]
+                      }
+                    },
+                    "pageSize": {
+                      "type": "integer"
+                    },
+                    "pageNum": {
+                      "type": "integer"
+                    },
+                    "total": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "instances",
+                    "pageSize",
+                    "pageNum",
+                    "total"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "instances": [
+                        {
+                          "id": "12948885700ef8e3",
+                          "name": "",
+                          "clusterId": "5",
+                          "clusterName": "China",
+                          "status": "running",
+                          "imageUrl": "nginx:latest",
+                          "command": "",
+                          "cpuNum": "8",
+                          "memory": "63",
+                          "gpuNum": "1",
+                          "createdAt": "1713230117",
+                          "lastStartedAt": "1713258924",
+                          "lastStoppedAt": "0",
+                          "useTime": "30131",
+                          "billingMode": "instance_afterusage",
+                          "productId": "26",
+                          "productName": "RTX 4090 24GB",
+                          "rootfsSize": 10,
+                          "statusError": {
+                            "state": "",
+                            "message": ""
+                          },
+                          "envs": [
+                            {
+                              "key": "testkey",
+                              "value": "123"
+                            }
+                          ],
+                          "diskSize": 0,
+                          "instancePrice": "269100",
+                          "localStoragePrice": "100",
+                          "exitedLocalStoragePrice": "100"
+                        }
+                      ],
+                      "pageSize": 0,
+                      "pageNum": 0,
+                      "total": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/gpu/instance/create": {
+      "post": {
+        "summary": "Create Instance",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "productId": {
+                    "type": "string"
+                  },
+                  "gpuNum": {
+                    "type": "integer"
+                  },
+                  "cpuNum": {
+                    "type": "integer"
+                  },
+                  "memory": {
+                    "type": "integer"
+                  },
+                  "diskSize": {
+                    "type": "integer"
+                  },
+                  "imageUrl": {
+                    "type": "string"
+                  },
+                  "imageAuth": {
+                    "type": "string"
+                  },
+                  "ports": {
+                    "type": "string"
+                  },
+                  "envs": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "command": {
+                    "type": "string"
+                  },
+                  "clusterId": {
+                    "type": "string"
+                  },
+                  "networkStorageId": {
+                    "type": "string"
+                  },
+                  "localStorageMountPoint": {
+                    "type": "string"
+                  },
+                  "networkStorageMountPoint": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "productId",
+                  "gpuNum",
+                  "diskSize",
+                  "imageUrl",
+                  "imageAuth",
+                  "ports",
+                  "envs",
+                  "command",
+                  "clusterId",
+                  "networkStorageId",
+                  "localStorageMountPoint",
+                  "networkStorageMountPoint",
+                  "cpuNum",
+                  "memory"
+                ]
+              },
+              "example": {
+                "name": "string",
+                "productId": "string",
+                "gpuNum": 0,
+                "diskSize": 0,
+                "billingMode": "string",
+                "duration": 0,
+                "imageUrl": "string",
+                "imageAuth": "string",
+                "ports": "string",
+                "envs": [
+                  {
+                    "key": "string",
+                    "value": "string"
+                  }
+                ],
+                "command": "string",
+                "clusterId": "string",
+                "networkStorageId": "string",
+                "localStorageMountPoint": "string",
+                "networkStorageMountPoint": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
     "/v1/clusters": {
       "get": {
         "summary": "List Clusters",
@@ -91,6 +919,2696 @@
                           "supportNetworkStorage": false
                         }
                       ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/products": {
+      "get": {
+        "summary": "List Products",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "clusterId",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productName",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "cpuPerGpu": {
+                            "type": "integer"
+                          },
+                          "memoryPerGpu": {
+                            "type": "integer",
+                            "description": "Unit(GB)"
+                          },
+                          "diskPerGpu": {
+                            "type": "integer",
+                            "description": "Unit(GB)"
+                          },
+                          "availableDeploy": {
+                            "type": "boolean"
+                          },
+                          "price": {
+                            "type": "string",
+                            "format": "int64",
+                            "description": "Unit(0.00001$)"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "cpuPerGpu",
+                          "memoryPerGpu",
+                          "diskPerGpu",
+                          "availableDeploy",
+                          "price"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "data": [
+                        {
+                          "id": "23",
+                          "name": "RTX 3090 24GB",
+                          "cpuPerGpu": 8,
+                          "memoryPerGpu": 56,
+                          "diskPerGpu": 670,
+                          "availableDeploy": true,
+                          "price": 20000
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/networkstorages/list": {
+      "get": {
+        "summary": "List Network Storage",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "storageName",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "storageId",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "storageId": {
+                            "type": "string"
+                          },
+                          "storageName": {
+                            "type": "string"
+                          },
+                          "storageSize": {
+                            "type": "integer"
+                          },
+                          "clusterId": {
+                            "type": "string"
+                          },
+                          "clusterName": {
+                            "type": "string"
+                          },
+                          "price": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "storageId",
+                          "storageName",
+                          "storageSize",
+                          "clusterId",
+                          "clusterName",
+                          "price"
+                        ]
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "total"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "data": [
+                        {
+                          "storageId": "d4e82677-3f80-4020-a731-d15b1c589aa8",
+                          "storageName": "123",
+                          "storageSize": 10,
+                          "clusterId": "5",
+                          "clusterName": "EU-01",
+                          "price": "100"
+                        },
+                        {
+                          "storageId": "082383c6-bc28-4bfa-a3b3-b6d6511bdf64",
+                          "storageName": "123",
+                          "storageSize": 10,
+                          "clusterId": "5",
+                          "clusterName": "EU-01",
+                          "price": "100"
+                        }
+                      ],
+                      "total": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/networkstorage/create": {
+      "post": {
+        "summary": "Create Network Storage",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "clusterId": {
+                    "type": "string"
+                  },
+                  "storageName": {
+                    "type": "string"
+                  },
+                  "storageSize": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "clusterId",
+                  "storageName",
+                  "storageSize"
+                ]
+              },
+              "example": {
+                "clusterId": "string",
+                "storageName": "string",
+                "storageSize": 0
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/networkstorage/update": {
+      "post": {
+        "summary": "Edit Network Storage",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "storageId": {
+                    "type": "string"
+                  },
+                  "storageName": {
+                    "type": "string"
+                  },
+                  "storageSize": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "storageId",
+                  "storageName",
+                  "storageSize"
+                ]
+              },
+              "example": {
+                "storageId": "string",
+                "storageName": "string",
+                "storageSize": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/saving_plan": {
+      "get": {
+        "summary": "List Saving Plans",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "productName": {
+                            "type": "string"
+                          },
+                          "instanceName": {
+                            "type": "string"
+                          },
+                          "instanceId": {
+                            "type": "string"
+                          },
+                          "regionName": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "string"
+                          },
+                          "utilization": {
+                            "type": "integer"
+                          },
+                          "expireTime": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "productName",
+                          "instanceName",
+                          "instanceId",
+                          "regionName",
+                          "amount",
+                          "utilization",
+                          "expireTime"
+                        ]
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "total"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "data": [
+                        {
+                          "id": "spt8MuyqwomzdKEOsq",
+                          "productName": "RTX 4090 24GB",
+                          "instanceName": "",
+                          "instanceId": "",
+                          "regionName": "",
+                          "amount": "150000",
+                          "utilization": 0,
+                          "expireTime": "1715828849"
+                        },
+                        {
+                          "id": "sp-pnv0cyw0d3zofwtm",
+                          "productName": "RTX 4090 24GB",
+                          "instanceName": "",
+                          "instanceId": "",
+                          "regionName": "",
+                          "amount": "150000",
+                          "utilization": 0,
+                          "expireTime": "1715850917"
+                        },
+                        {
+                          "id": "sp5KTjErHT1PNs9C9q",
+                          "productName": "RTX 4090 24GB",
+                          "instanceName": "",
+                          "instanceId": "",
+                          "regionName": "",
+                          "amount": "432000",
+                          "utilization": 0,
+                          "expireTime": "1721025124"
+                        }
+                      ],
+                      "total": 3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/saving_plan/create": {
+      "post": {
+        "summary": "Create Saving Plan",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "instanceId": {
+                    "type": "string"
+                  },
+                  "templateId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "instanceId",
+                  "templateId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "ID"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/balance": {
+      "get": {
+        "summary": "Get Balance",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "balance": {
+                      "type": "string",
+                      "format": "int64",
+                      "description": "unit $0.01"
+                    },
+                    "price": {
+                      "type": "string",
+                      "format": "int64",
+                      "description": "unit $0.01"
+                    },
+                    "hours": {
+                      "type": "string",
+                      "format": "int64",
+                      "description": "balance can support instances runing hours"
+                    }
+                  },
+                  "required": [
+                    "balance",
+                    "price",
+                    "hours"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "balance": "9926342",
+                      "price": "1662",
+                      "hours": "5972"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/bill/transaction": {
+      "get": {
+        "summary": "List Transtions",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "pageNo",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serialNumber",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "transactionTimeStart",
+            "in": "query",
+            "description": "unix timestamp",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "transactionTimeEnd",
+            "in": "query",
+            "description": "unix timestamp",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "transactionType",
+            "in": "query",
+            "description": "can set to [\"recharge\", \"consume\"]",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "can set to [\"pending\", \"success\", \"failed\"]",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "customerId": {
+                            "type": "string"
+                          },
+                          "serialNumber": {
+                            "type": "string"
+                          },
+                          "transactionTime": {
+                            "type": "string"
+                          },
+                          "transactionType": {
+                            "type": "string"
+                          },
+                          "transactionAmount": {
+                            "type": "string",
+                            "format": "int64"
+                          },
+                          "walletBalance": {
+                            "type": "string",
+                            "format": "int64"
+                          },
+                          "note": {
+                            "type": "string"
+                          },
+                          "state": {
+                            "type": "string"
+                          },
+                          "invoiceURL": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "customerId",
+                          "serialNumber",
+                          "transactionTime",
+                          "transactionType",
+                          "walletBalance",
+                          "note",
+                          "state",
+                          "invoiceURL",
+                          "transactionAmount"
+                        ]
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "total"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "data": [
+                        {
+                          "customerId": "9141320498493177",
+                          "serialNumber": "GPURC20240514042913000968",
+                          "transactionTime": "1713040154",
+                          "transactionType": "recharge",
+                          "transactionAmount": "10000000",
+                          "walletBalance": "9974775",
+                          "note": "",
+                          "state": "success",
+                          "invoiceURL": "https://invoice.stripe.com/i/acct_1OwKEaDx7cU9euOn/test_YWNjdF8xT3dLRWFEeDdjVTlldU9uLF9QdkIzNXA0dmxMVm1Ib2NybW80NExiZUZLcDZtTm10LDEwMzYwOTc3NA0200HA9prp5k?s=ap"
+                        },
+                        {
+                          "customerId": "9141320498493177",
+                          "serialNumber": "GPURC20240503063352000889",
+                          "transactionTime": "1712097233",
+                          "transactionType": "recharge",
+                          "transactionAmount": "100000",
+                          "walletBalance": "200000",
+                          "note": "",
+                          "state": "success",
+                          "invoiceURL": "https://invoice.stripe.com/i/acct_1OwKEaDx7cU9euOn/test_YWNjdF8xT3dLRWFEeDdjVTlldU9uLF9QcjVaVUhaWW83TG9kQXpuemtkbEpKN240bFZhQ3I2LDEwMjY2Njg1Nw0200IxlmrXLG?s=ap"
+                        }
+                      ],
+                      "total": 3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/bills": {
+      "get": {
+        "summary": "List Bills",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "statisticCycle",
+            "in": "query",
+            "description": "cycleHour: statistic by hour;cycleDay: statistic by day;cycleWeek: statistic by week;cycleMonth: statistic by month",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "startTime": {
+                            "type": "string",
+                            "format": "int64",
+                            "description": "unix timestamp"
+                          },
+                          "endTime": {
+                            "type": "string",
+                            "format": "int64",
+                            "description": "unix timestamp"
+                          },
+                          "sumAmount": {
+                            "type": "string",
+                            "format": "int64",
+                            "description": "unit $0.01"
+                          },
+                          "instanceAmount": {
+                            "type": "string",
+                            "format": "int64",
+                            "description": "unit $0.01"
+                          },
+                          "storageAmount": {
+                            "type": "string",
+                            "format": "int64",
+                            "description": "unit $0.01"
+                          },
+                          "savingPlanAmount": {
+                            "type": "string",
+                            "format": "int64",
+                            "description": "unit $0.01"
+                          }
+                        },
+                        "required": [
+                          "startTime",
+                          "endTime",
+                          "sumAmount",
+                          "instanceAmount",
+                          "storageAmount",
+                          "savingPlanAmount"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "data": [
+                        {
+                          "startTime": "1713283200",
+                          "endTime": "1713286799",
+                          "sumAmount": "1",
+                          "instanceAmount": "0",
+                          "storageAmount": "1",
+                          "savingPlanAmount": "0"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/user/userinfo": {
+      "get": {
+        "summary": "Get User Info",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "type": "string"
+                    },
+                    "avatar": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "companyName": {
+                      "type": "string"
+                    },
+                    "companyId": {
+                      "type": "string"
+                    },
+                    "taxId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "username",
+                    "displayName",
+                    "avatar",
+                    "email",
+                    "phone",
+                    "firstName",
+                    "lastName",
+                    "country",
+                    "companyName",
+                    "companyId",
+                    "taxId"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "id": "9141320498493177",
+                      "username": "zhaobingchun1@gmail.com",
+                      "displayName": "zhaobingchun1",
+                      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocIMYhBnDVPMxBXeOgrwUkUzG9fJZjJdf_VY-hWwfXg8=s96-c",
+                      "email": "zhaobingchun1@gmail.com",
+                      "phone": "",
+                      "firstName": "rock",
+                      "lastName": "lee",
+                      "country": "China",
+                      "companyName": "",
+                      "companyId": "1",
+                      "taxId": "1"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/repository/auth/save": {
+      "post": {
+        "summary": "Create Container Registry Auth",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "username",
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/repository/auths": {
+      "get": {
+        "summary": "List Container Registry Auth",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "username": {
+                            "type": "string"
+                          },
+                          "password": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "username",
+                          "password"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "data": [
+                        {
+                          "id": "75irlsvvsehnqdajg2r481mjk54ecodc",
+                          "name": "test",
+                          "username": "uuuu",
+                          "password": "1111"
+                        },
+                        {
+                          "id": "eih4rdk77avum5lyau291w1i54zd897w",
+                          "name": "test",
+                          "username": "uuuu",
+                          "password": "1111"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/templates": {
+      "get": {
+        "summary": "List Templates",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "channel",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "template": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "Id": {
+                            "type": "string"
+                          },
+                          "user": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "readme": {
+                            "type": "string"
+                          },
+                          "logo": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "channel": {
+                            "type": "string"
+                          },
+                          "image": {
+                            "type": "string"
+                          },
+                          "imageAuth": {
+                            "type": "string"
+                          },
+                          "startCommand": {
+                            "type": "string"
+                          },
+                          "rootfsSize": {
+                            "type": "integer"
+                          },
+                          "volumes": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string"
+                                },
+                                "size": {
+                                  "type": "integer"
+                                },
+                                "mountPath": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "size",
+                                "mountPath"
+                              ]
+                            }
+                          },
+                          "ports": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string"
+                                },
+                                "ports": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "integer"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "ports"
+                              ]
+                            }
+                          },
+                          "envs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "key",
+                                "value"
+                              ]
+                            }
+                          },
+                          "tools": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "describe": {
+                                  "type": "string"
+                                },
+                                "port": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "describe",
+                                "port"
+                              ]
+                            }
+                          },
+                          "createTime": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "Id",
+                          "user",
+                          "name",
+                          "readme",
+                          "logo",
+                          "type",
+                          "channel",
+                          "image",
+                          "imageAuth",
+                          "startCommand",
+                          "rootfsSize",
+                          "volumes",
+                          "ports",
+                          "envs",
+                          "tools",
+                          "createTime"
+                        ]
+                      }
+                    },
+                    "pageSize": {
+                      "type": "integer"
+                    },
+                    "pageNum": {
+                      "type": "integer"
+                    },
+                    "total": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "template",
+                    "pageSize",
+                    "pageNum",
+                    "total"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "template": [
+                        {
+                          "Id": "100",
+                          "user": "1032922317920824",
+                          "name": "name",
+                          "readme": "```\nreadme\n```\n# uiohiu\n68686",
+                          "logo": "",
+                          "type": "instance",
+                          "channel": "private",
+                          "image": "image",
+                          "imageAuth": "",
+                          "startCommand": "startCommand",
+                          "rootfsSize": 10,
+                          "volumes": [
+                            {
+                              "type": "local",
+                              "size": 20,
+                              "mountPath": "localVolumeMount"
+                            }
+                          ],
+                          "ports": [
+                            {
+                              "type": "tcp",
+                              "ports": [
+                                8080,
+                                8090
+                              ]
+                            },
+                            {
+                              "type": "http",
+                              "ports": [
+                                6000,
+                                60001
+                              ]
+                            }
+                          ],
+                          "envs": [
+                            {
+                              "key": "testkey",
+                              "value": "123"
+                            }
+                          ],
+                          "tools": [],
+                          "createTime": "1711995567"
+                        }
+                      ],
+                      "pageSize": 0,
+                      "pageNum": 0,
+                      "total": 69
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/template/create": {
+      "post": {
+        "summary": "Create Template",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "template": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "readme": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "channel": {
+                        "type": "string"
+                      },
+                      "image": {
+                        "type": "string"
+                      },
+                      "startCommand": {
+                        "type": "string"
+                      },
+                      "rootfsSize": {
+                        "type": "integer"
+                      },
+                      "localVolumeSize": {
+                        "type": "integer"
+                      },
+                      "localVolumeMount": {
+                        "type": "string"
+                      },
+                      "ports": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string"
+                            },
+                            "ports": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "ports"
+                          ]
+                        }
+                      },
+                      "volumes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string"
+                            },
+                            "size": {
+                              "type": "integer"
+                            },
+                            "mountPath": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "envs": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "readme",
+                      "type",
+                      "channel",
+                      "image",
+                      "startCommand",
+                      "rootfsSize",
+                      "localVolumeSize",
+                      "localVolumeMount",
+                      "ports",
+                      "volumes",
+                      "envs"
+                    ]
+                  }
+                },
+                "required": [
+                  "template"
+                ]
+              },
+              "example": {
+                "template": {
+                  "name": "test",
+                  "readme": "readme",
+                  "type": "instance",
+                  "channel": "private",
+                  "image": "redis",
+                  "startCommand": "",
+                  "rootfsSize": 10,
+                  "localVolumeSize": 20,
+                  "localVolumeMount": "/workspace",
+                  "ports": [
+                    {
+                      "type": "tcp",
+                      "ports": [
+                        "8080",
+                        "8090"
+                      ]
+                    },
+                    {
+                      "type": "http",
+                      "ports": [
+                        "6000",
+                        "60001"
+                      ]
+                    }
+                  ],
+                  "volumes": [
+                    {
+                      "type": "local",
+                      "size": 20,
+                      "mountPath": "/workspace"
+                    }
+                  ],
+                  "envs": [
+                    {
+                      "key": "testkey",
+                      "value": "123"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "templateId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "templateId"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "templateId": "1"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/template/update": {
+      "post": {
+        "summary": "Edit Template",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/template/delete": {
+      "post": {
+        "summary": "Delete Template",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "templateId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "templateId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "templateId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "templateId"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/gpu/instance/start": {
+      "post": {
+        "summary": "Start Instance",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "instanceId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "instanceId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/gpu/instance/stop": {
+      "post": {
+        "summary": "Stop Instance",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "instanceId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "instanceId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/gpu/instance/delete": {
+      "post": {
+        "summary": "Delete Instance",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "instanceId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "instanceId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/networkstorage/delete": {
+      "post": {
+        "summary": "Delete Network Storage",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "storageId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "storageId"
+                ]
+              },
+              "example": {
+                "instanceId": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/repository/auth/delete": {
+      "post": {
+        "summary": "Delete Container Registry Auth",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/saving_plan_template": {
+      "get": {
+        "summary": "List Saving Plan Templates",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "productId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "productId"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "productId": {
+                            "type": "string"
+                          },
+                          "days": {
+                            "type": "integer"
+                          },
+                          "price": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "productId",
+                          "days",
+                          "price"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "data": [
+                        {
+                          "id": "7",
+                          "name": "1 Month",
+                          "productId": "26",
+                          "days": 30,
+                          "price": "5000000"
+                        },
+                        {
+                          "id": "8",
+                          "name": "3 Month",
+                          "productId": "26",
+                          "days": 90,
+                          "price": "4800000"
+                        },
+                        {
+                          "id": "9",
+                          "name": "6 Month",
+                          "productId": "26",
+                          "days": 180,
+                          "price": "4500000"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/template": {
+      "get": {
+        "summary": "Get Template",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-user-id",
+            "in": "header",
+            "description": "",
+            "example": "{{user_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{user_id}}"
+            }
+          },
+          {
+            "name": "x-appid",
+            "in": "header",
+            "description": "",
+            "example": "{{app_id}}",
+            "schema": {
+              "type": "string",
+              "default": "{{app_id}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "template": {
+                      "type": "object",
+                      "properties": {
+                        "Id": {
+                          "type": "string"
+                        },
+                        "user": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "readme": {
+                          "type": "string"
+                        },
+                        "logo": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "channel": {
+                          "type": "string"
+                        },
+                        "image": {
+                          "type": "string"
+                        },
+                        "imageAuth": {
+                          "type": "string"
+                        },
+                        "startCommand": {
+                          "type": "string"
+                        },
+                        "rootfsSize": {
+                          "type": "integer"
+                        },
+                        "volumes": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "size": {
+                                "type": "integer"
+                              },
+                              "mountPath": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "ports": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "ports": {
+                                "type": "array",
+                                "items": {
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "ports"
+                            ]
+                          }
+                        },
+                        "envs": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "tools": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "createTime": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "Id",
+                        "user",
+                        "name",
+                        "readme",
+                        "logo",
+                        "type",
+                        "channel",
+                        "image",
+                        "imageAuth",
+                        "startCommand",
+                        "rootfsSize",
+                        "volumes",
+                        "ports",
+                        "envs",
+                        "tools",
+                        "createTime"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "template"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "template": {
+                        "Id": "212",
+                        "user": "9141320498493177",
+                        "name": "ubuntu",
+                        "readme": "readme",
+                        "logo": "",
+                        "type": "instance",
+                        "channel": "private",
+                        "image": "ubuntu:latest",
+                        "imageAuth": "",
+                        "startCommand": "",
+                        "rootfsSize": 10,
+                        "volumes": [
+                          {
+                            "type": "local",
+                            "size": 20,
+                            "mountPath": "/workspace"
+                          }
+                        ],
+                        "ports": [
+                          {
+                            "type": "tcp",
+                            "ports": [
+                              8080,
+                              8090
+                            ]
+                          },
+                          {
+                            "type": "http",
+                            "ports": [
+                              6000,
+                              60001
+                            ]
+                          }
+                        ],
+                        "envs": [
+                          {
+                            "key": "testkey",
+                            "value": "123"
+                          }
+                        ],
+                        "tools": [],
+                        "createTime": "1713162260"
+                      }
                     }
                   }
                 }
