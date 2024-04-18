@@ -45,12 +45,6 @@
   ],
   "navigation": [
     {
-      "group": "Introduction",
-      "pages": [
-        "introduction/intro"
-      ]
-    },
-    {
       "group": "Quickstart",
       "pages": [
         "quickstart/prepare",
@@ -67,6 +61,12 @@
       "pages": [
         "billing/payment-methods",
         "billing/billing-methods"
+      ]
+    },
+    {
+      "group": "FAQ",
+      "pages": [
+        "FAQ/intro"
       ]
     },
     {
