@@ -78,9 +78,14 @@
     {
       "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/endpoint/list-clusters",
+        "api-reference/endpoint/list-products",
+        "api-reference/endpoint/get-instance",
+        "api-reference/endpoint/list-instances",
+        "api-reference/endpoint/create-instance",
+        "api-reference/endpoint/delete-instance",
+        "api-reference/endpoint/stop-instance",
+        "api-reference/endpoint/start-instance"
       ]
     }
   ],
