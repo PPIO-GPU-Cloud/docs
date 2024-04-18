@@ -47,8 +47,6 @@
     {
       "group": "Introduction",
       "pages": [
-        "introduction/advantages",
-        "introduction/scenarios",
         "introduction/quota"
       ]
     },
