@@ -90,6 +90,6 @@
     "linkedin": "https://www.linkedin.com/company/mintsearch"
   },
   "openapi": [
-    "/openapi.json"
+    "api-reference/openapi.json"
   ]
 }
