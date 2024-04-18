@@ -206,7 +206,23 @@
                       "type": "string"
                     },
                     "connectComponentSSH": {
-                      "type": "null"
+                      "type": "object",
+                      "properties": {
+                        "sshCommand": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        },
+                        "password": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "sshCommand",
+                        "username",
+                        "password"
+                      ]
                     },
                     "connectComponentWebTerminal": {
                       "type": "object",
@@ -215,6 +231,12 @@
                           "type": "integer"
                         },
                         "address": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        },
+                        "password": {
                           "type": "string"
                         },
                         "isRunning": {
@@ -228,11 +250,25 @@
                         "port",
                         "address",
                         "isRunning",
-                        "isShow"
+                        "isShow",
+                        "username",
+                        "password"
                       ]
                     },
                     "connectComponentJupyter": {
-                      "type": "null"
+                      "type": "object",
+                      "properties": {
+                        "port": {
+                          "type": "string"
+                        },
+                        "address": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "port",
+                        "address"
+                      ]
                     },
                     "connectComponentLog": {
                       "type": "object",
@@ -726,11 +762,15 @@
                   "diskSize": {
                     "type": "integer"
                   },
+                  "rootfsSize": {
+                    "type": "integer"
+                  },
                   "imageUrl": {
                     "type": "string"
                   },
                   "imageAuth": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "username:password"
                   },
                   "ports": {
                     "type": "string"
@@ -766,21 +806,13 @@
                   }
                 },
                 "required": [
-                  "name",
                   "productId",
                   "gpuNum",
                   "diskSize",
                   "imageUrl",
-                  "imageAuth",
-                  "ports",
-                  "envs",
-                  "command",
-                  "clusterId",
-                  "networkStorageId",
-                  "localStorageMountPoint",
-                  "networkStorageMountPoint",
                   "cpuNum",
-                  "memory"
+                  "memory",
+                  "rootfsSize"
                 ]
               },
               "example": {
