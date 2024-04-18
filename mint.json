@@ -47,6 +47,7 @@
     {
       "group": "Quickstart",
       "pages": [
+        "quickstart/start",
         "quickstart/prepare",
         "quickstart/create",
         "quickstart/manage",
