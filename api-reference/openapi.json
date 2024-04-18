@@ -7,7 +7,9 @@
   },
   "servers": [
     {
-      "url": "https://openapi.infrai.com/openapi"
+      "url": [
+        "https://openapi.infrai.com/openapi"
+      ]
     }
   ],
   "tags": [],
