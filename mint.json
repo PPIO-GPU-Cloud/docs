@@ -18,7 +18,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:admin@infrai.com"
+      "url": "https://discord.com/invite/yntJ6VEX2J"
     }
   ],
   "topbarCtaButton": {
@@ -80,7 +80,27 @@
         "api-reference/endpoint/create-instance",
         "api-reference/endpoint/delete-instance",
         "api-reference/endpoint/stop-instance",
-        "api-reference/endpoint/start-instance"
+        "api-reference/endpoint/start-instance",
+        "api-reference/endpoint/list-network-storage",
+        "api-reference/endpoint/edit-network-storage",
+        "api-reference/endpoint/create-network-storage",
+        "api-reference/endpoint/delete-network-storage",
+        "api-reference/endpoint/list-templates",
+        "api-reference/endpoint/get-template",
+        "api-reference/endpoint/create-template",
+        "api-reference/endpoint/delete-template",
+        "api-reference/endpoint/edit-template",
+        "api-reference/endpoint/get-balance",
+        "api-reference/endpoint/list-transtions",
+        "api-reference/endpoint/list-bills",
+        "api-reference/endpoint/list-saving-plans",
+        "api-reference/endpoint/create-saving-plan",
+        "api-reference/endpoint/edit-saving-plan",
+        "api-reference/endpoint/list-saving-plan-templates",
+        "api-reference/endpoint/get-user-info",
+        "api-reference/endpoint/create-container-registry-auth",
+        "api-reference/endpoint/list-container-registrie-auth",
+        "api-reference/endpoint/delete-container-registry-auth"
       ]
     }
   ],
