@@ -5,11 +5,6 @@
     "description": "",
     "version": "1.0.0"
   },
-  "servers": [
-    {
-      "url": "https://openapi.infrai.com/openapi"
-    }
-  ],
   "tags": [],
   "paths": {
     "/v1/gpu/instance": {
@@ -27,16 +22,6 @@
             "example": "12948885700ef8e3",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
             }
           },
           {
@@ -496,16 +481,6 @@
             }
           },
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -723,16 +698,6 @@
         "tags": [],
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -880,16 +845,6 @@
         "tags": [],
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -993,16 +948,6 @@
             "required": false,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
             }
           },
           {
@@ -1144,16 +1089,6 @@
             }
           },
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -1260,16 +1195,6 @@
         "tags": [],
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -1336,16 +1261,6 @@
         "description": "",
         "tags": [],
         "parameters": [
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
           {
             "name": "x-appid",
             "in": "header",
@@ -1414,16 +1329,6 @@
         "description": "",
         "tags": [],
         "parameters": [
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
           {
             "name": "x-appid",
             "in": "header",
@@ -1553,16 +1458,6 @@
         "tags": [],
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -1629,16 +1524,6 @@
         "description": "",
         "tags": [],
         "parameters": [
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
           {
             "name": "x-appid",
             "in": "header",
@@ -1769,16 +1654,6 @@
             "required": false,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
             }
           },
           {
@@ -1927,16 +1802,6 @@
             }
           },
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -2041,16 +1906,6 @@
         "description": "",
         "tags": [],
         "parameters": [
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
           {
             "name": "x-appid",
             "in": "header",
@@ -2160,16 +2015,6 @@
         "tags": [],
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -2232,16 +2077,6 @@
         "description": "",
         "tags": [],
         "parameters": [
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
           {
             "name": "x-appid",
             "in": "header",
@@ -2377,16 +2212,6 @@
               "items": {
                 "type": "string"
               }
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
             }
           },
           {
@@ -2645,16 +2470,6 @@
         "tags": [],
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -2862,16 +2677,6 @@
         "tags": [],
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -2909,16 +2714,6 @@
         "description": "",
         "tags": [],
         "parameters": [
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
           {
             "name": "x-appid",
             "in": "header",
@@ -2982,16 +2777,6 @@
         "tags": [],
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -3046,16 +2831,6 @@
         "description": "",
         "tags": [],
         "parameters": [
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
           {
             "name": "x-appid",
             "in": "header",
@@ -3112,16 +2887,6 @@
         "tags": [],
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -3176,16 +2941,6 @@
         "description": "",
         "tags": [],
         "parameters": [
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
           {
             "name": "x-appid",
             "in": "header",
@@ -3245,16 +3000,6 @@
         "tags": [],
         "parameters": [
           {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
-          {
             "name": "x-appid",
             "in": "header",
             "description": "",
@@ -3309,16 +3054,6 @@
         "description": "",
         "tags": [],
         "parameters": [
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
-            }
-          },
           {
             "name": "x-appid",
             "in": "header",
@@ -3445,16 +3180,6 @@
             "required": false,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "x-user-id",
-            "in": "header",
-            "description": "",
-            "example": "{{user_id}}",
-            "schema": {
-              "type": "string",
-              "default": "{{user_id}}"
             }
           },
           {
@@ -3669,5 +3394,6 @@
         "scheme": "bearer"
       }
     }
-  }
+  },
+  "servers": []
 }
