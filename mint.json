@@ -64,6 +64,12 @@
       ]
     },
     {
+      "group": "Terms",
+      "pages": [
+        "terms/service"
+      ]
+    },
+    {
       "group": "FAQ",
       "pages": [
         "FAQ/intro"
