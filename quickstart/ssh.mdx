@@ -1,58 +1,60 @@
 ---
-title: Connect to Your Instance
+title: 远程连接
 ---
 
-## Quick Start
-### Logging in via SSH Key (Recommended)
-#### Linux/MacOS 
-1. On Ubuntu or Mac, use the following command to generate an RSA SSH public/private key pair:
+## 快速开始
 
+### 通过 SSH Key 登录（推荐）
 
-```bash
-ssh-keygen -t rsa
-``` 
+#### Linux/MacOS
 
-2. Force the agent to load the new private key and verify it's loaded:
+1. 在 Ubuntu 或 Mac 上，使用以下命令生成 rsa SSH 公钥/私钥对：
 
+    ```
+    ssh-keygen -t rsa
+    ```
 
-```bash
-ssh-add; ssh-add -l
-``` 
+2. 强制守护进程加载新私钥，并确认已加载：
 
-3. Retrieve the content of the public key:
+    ```
+    ssh-add; ssh-add -l
+    ```
 
+3. 获取公钥内容：
 
-```bash
-cat ~/.ssh/id_rsa.pub
-``` 
+    ```
+    cat ~/.ssh/id_rsa.pub
+    ```
 
+4. 将输出复制到 [个人中心](https://console.paigpu.com/#/personalCenter) 下的 "SSH 公钥" 文本框中。确保包含 "ssh-rsa" 和 "user@something"。
 
-4. Copy the output to the "SSH Public Key" textbox under [Personal Center]() . Ensure it includes "ssh-rsa" and "user@something".
+    SSH 密钥示例：
 
-Example of an SSH Key:
-
-
-```bash
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDopiaR1Q6Na6dW1QTK7hMuHVi+gXqutY5pUvrWCgeyjcBtBLHejxDQjdNt+qWQRORK/fZzrmyA8/ghani0rZlGPN3bYw1RXFHitt+bD1jVgtJzOmjMQdpMVALnZASQMoQQcCqVJ8PG5Xc08TciACS7S/Ltz3VdZfIq1tih969GCzCe3sctSFBuTwqUDnyrQ6iqSBhPSfQS7nCC/CwzMi3rDg0JzW2NHzIBsbvy0gdXy1ZtC4kkCr7/lUWAgZLk52v3s2CTXCg6QXnhWx+Q/dHOJVAEEucY4o8bo4rF4Bj+ifgEHFtUEfoK9+yj3OLbWfpIxyzhHK+nNXz3UaOMSC8D ultra@infrai
-```
-
+    ```
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDopiaR1Q6Na6dW1QTK7hMuHVi+gXqutY5pUvrWCgeyjcBtBLHejxDQjdNt+qWQRORK/fZzrmyA8/ghani0rZlGPN3bYw1RXFHitt+bD1jVgtJzOmjMQdpMVALnZASQMoQQcCqVJ8PG5Xc08TciACS7S/Ltz3VdZfIq1tih969GCzCe3sctSFBuTwqUDnyrQ6iqSBhPSfQS7nCC/CwzMi3rDg0JzW2NHzIBsbvy0gdXy1ZtC4kkCr7/lUWAgZLk52v3s2CTXCg6QXnhWx+Q/dHOJVAEEucY4o8bo4rF4Bj+ifgEHFtUEfoK9+yj3OLbWfpIxyzhHK+nNXz3UaOMSC8D ultra@ppio
+    ```
 
 #### Windows
 
-Windows requires additional command-line tools like Cmder to generate SSH keys, with operations consistent with Linux.
+Windows 需要额外的命令行工具如 Cmder 生成 SSH 密钥，操作与 Linux 一致。
 
-Since most machine learning and AI programming is performed on Linux, we strongly recommend installing a Linux subsystem on your Windows machine, such as WSL.
-## Common Issues
+大多数机器学习和 AI 编程都是在 Linux 上完成的，我们强烈建议您在 Windows 机器上安装一个 Linux 子系统，比如 WSL。
 
-If you encounter a "Permission denied(publickey)" error, it might be due to:
-- Attempting to run SSH/SCP from within an instance
-- Incorrect key setup or using the wrong/unmatched key
-- The SSH key format used is incorrect/unsupported 
-- The private key wasn't correctly loaded with `ssh-add`, may need to use the `-i` parameter
-- New or updated keys not taking effect for already created resources
-- Incorrect SSH key permission settings
 
-Use the `ssh -vv` command for detailed information.
-### Logging in via Password
 
-Copy the SSH login command from the [My Instances]()  page to a terminal or SSH tool and log in using the password provided on the page.
+## 常见故障
+
+如果您遇到 "Permission denied(publickey)" 的报错时，可能是以下原因：
+
+- 尝试从实例内部运行 SSH/SCP
+- 密钥设置不正确或使用了错误/不匹配的密钥
+- 使用的 SSH 密钥格式不正确/不支持
+- 私钥未通过 `ssh-add` 正确加载，可能需使用 `-i` 参数
+- 新增或更新密钥后，对已创建资源不生效
+- SSH 密钥权限设置不正确
+
+使用 `ssh -vv` 命令获取详细信息。
+
+### 通过密码登录
+
+在 [我的实例](https://console.paigpu.com/#/mainInstance) 页面复制 SSH 登录命令到终端或 SSH 工具，并使用页面提供的密码登录。

@@ -1,30 +1,35 @@
 ---
-title: Manage Instances
+title: 管理实例
 ---
 
+## 启动实例
 
-## Start an Instance
-1. Log in to the instance management page.
-2. In the instance list, locate the instance you wish to start.
-3. Click the **Start** button on the right side of the instance entry.
-4. The system will automatically initiate the instance; please be patient during the startup process.
+1. 登录至实例管理页面。
+2. 在实例列表中，找到需要启动的实例。
+3. 点击实例条目右侧的「启动」按钮。
+4. 系统会自动启动实例，启动过程中请耐心等待。
 
+![](https://gpu-cloud-1312767721.cos.ap-shanghai.myqcloud.com/docs/20240228-144346@2x.png) 
 
-## Stop an Instance
-1. Log in to the instance management page.
-2. In the instance list, find the instance you need to shut down.
-3. Click the **Shut Down** button on the right side of the instance entry.
-4. Select the **Shut Down** option and follow the prompts to confirm the action.
+## 停止实例
 
-Before proceeding with the shutdown operation, please ensure all work progress is saved to avoid data loss.
-The system and data disks of the instance are both local disks. Local data disks offer superior performance but lack redundant copies and are subject to the inherent lifespan limitations of local storage, potentially leading to failures. It is advisable to regularly back up important data to the cloud or locally, as Infrai does not provide reliability commitments or services for such local storage products.
-Data retention rule in instances: Data remains as long as the instance exists. Even if the instance is shut down, local storage will still incur charges unless the instance is released; there is a release cycle for instances, with the rule being that instances are released after being shut down continuously for 7 days, at which point all data in the instance will be erased.
+1. 登录至实例管理页面。
+2. 在实例列表中，找到需要关机的实例。
+3. 点击实例条目右侧的「关机」按钮。
+4. 选择「关机」选项，并按提示确认操作。
 
+在执行关机操作前，请确保已经保存所有工作进度，避免数据丢失。
+实例的系统盘与数据盘均为本地磁盘，本地数据盘性能好但是无冗余副本，受限于本地磁盘的固有寿命，有概率出现故障，重要的数据请定期备份到云端或本地，派欧算力云对于此类本地存储产品不提供可靠性承诺与服务。
+实例中的数据保留规则：实例在数据在。实例即使关机，本地存储仍会正常计费，除非释放实例；实例有释放周期，释放规则是连续关机7天后释放实例，届时实例所有数据将被清空。
 
+![](https://gpu-cloud-1312767721.cos.ap-shanghai.myqcloud.com/docs/20240228-141639@2x.png)
 
-## Release an Instance
-1. In the instance list, find the instance and click the **More** button.
-2. In the action menu, select the **Release Instance** option.
-3. A confirmation prompt for release will appear. After verifying the information is correct, click **Confirm** to release the instance.
+## 释放实例
+1. 在实例列表中找到该实例，点击「更多」按钮。
+2. 在操作菜单中选择「释放实例」选项。
+3. 系统会弹出释放确认提示，确认信息无误后，点击「确定」以释放实例。
 
-**Please note, releasing an instance will result in all data being permanently**
+**请注意，释放实例将导致所有数据被永久删除，此操作不可恢复。**
+
+![](https://gpu-cloud-1312767721.cos.ap-shanghai.myqcloud.com/docs/20240228-143141@2x.png)
+

@@ -53,7 +53,8 @@
         "quickstart/manage",
         "quickstart/storage",
         "quickstart/ssh",
-        "quickstart/jupyter"
+        "quickstart/jupyter",
+        "quickstart/accelerate"
       ]
     },
     {
