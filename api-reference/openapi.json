@@ -6,6 +6,11 @@
     "version": "1.0.0"
   },
   "tags": [],
+  "servers": [
+    {
+      "url": "https://openapi.infrai.com"
+    }
+  ],
   "paths": {
     "/v1/gpu/instance": {
       "get": {
@@ -3394,10 +3399,5 @@
         "scheme": "bearer"
       }
     }
-  },
-  "servers": [
-    {
-      "url": "https://openapi.infrai.com"
-    }
-  ]
+  }
 }
