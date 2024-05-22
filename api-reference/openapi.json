@@ -3395,5 +3395,7 @@
       }
     }
   },
-  "servers": []
+  "servers": [
+    "https://openapi.infrai.com"
+  ]
 }
