@@ -8,7 +8,7 @@
   "tags": [],
   "servers": [
     {
-      "url": "https://openapi.infrai.com"
+      "url": "https://openapi.infrai.com/openapi"
     }
   ],
   "paths": {
